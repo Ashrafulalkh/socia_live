@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:socia_live/presentation/ui/utils/app_colors.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
@@ -16,9 +17,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        // backgroundColor: Color(0xFF101828),
         appBar: AppBar(
-          backgroundColor:  Color(0xFF1D2939),
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: const Text(
@@ -168,7 +167,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
 
   Widget _buildMyProfileInfoSection() {
     return Container(
-      color:  Color(0xFF1D2939),
+      color:  AppColors.darkThemeAppBarColor,
       child: const Padding(
         padding: EdgeInsets.all(16.0),
         child: Row(
