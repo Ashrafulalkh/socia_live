@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
+import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
 
 class MyProfileScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         ),
         body: Column(
           children: [
-            MyProfileInfo(
+            MyProfileInfoWidget(
               followingCallback: () {},
               followersCallback: () {},
             ),
@@ -40,7 +41,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildSaveSection(),
+                  _buildAllSection(),
                   _buildSteamingSection(),
                   _buildSaveSection(),
                 ],
@@ -60,21 +61,48 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     );
   }
 
+  Widget _buildAllSection() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+        ),
+        itemCount: 19,
+        itemBuilder: (context, index) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                image: NetworkImage(
+                  AppAssetsPath.demoPicURL1.toString(),
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   Widget _buildSteamingSection() {
     return Padding(
       padding: const EdgeInsets.all(17.0),
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: 9,
+        itemCount: 5,
         itemBuilder: (context, index) {
           return Container(
             margin: const EdgeInsets.only(bottom: 8),
             // Space between list items
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: NetworkImage(
-                  'https://scontent.fdac8-1.fna.fbcdn.net/v/t39.30808-6/467528443_3453863834915316_1496637658964669195_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE_VZcqJXQiusHDWTfWksOaL70sxtXrqFAvvSzG1euoUIFXhVMSNmhvdDOtpIEbhGpbVLQi-ciTvQATl7v5WfEt&_nc_ohc=ErLqNUFXhb8Q7kNvgHcFRE9&_nc_zt=23&_nc_ht=scontent.fdac8-1.fna&_nc_gid=A67e_NIhQQXi7zfMekKDE7l&oh=00_AYDnwxL9dX2HHV9Wv5xwT5spfZoC2ncxw1lLLZL5k9DxaQ&oe=674BE8EB',
+                  AppAssetsPath.demoPicURL1.toString(),
                 ),
                 fit: BoxFit.cover,
               ),
@@ -95,14 +123,14 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           crossAxisSpacing: 8,
           mainAxisSpacing: 8,
         ),
-        itemCount: 50,
+        itemCount: 7,
         itemBuilder: (context, index) {
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: NetworkImage(
-                  'https://scontent.fdac8-1.fna.fbcdn.net/v/t39.30808-6/467528443_3453863834915316_1496637658964669195_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE_VZcqJXQiusHDWTfWksOaL70sxtXrqFAvvSzG1euoUIFXhVMSNmhvdDOtpIEbhGpbVLQi-ciTvQATl7v5WfEt&_nc_ohc=ErLqNUFXhb8Q7kNvgHcFRE9&_nc_zt=23&_nc_ht=scontent.fdac8-1.fna&_nc_gid=A67e_NIhQQXi7zfMekKDE7l&oh=00_AYDnwxL9dX2HHV9Wv5xwT5spfZoC2ncxw1lLLZL5k9DxaQ&oe=674BE8EB', // Replace with the image URLs
+                  AppAssetsPath.demoPicURL1.toString(),
                 ),
                 fit: BoxFit.cover,
               ),
