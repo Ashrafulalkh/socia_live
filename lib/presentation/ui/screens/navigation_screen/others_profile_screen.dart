@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 
 
@@ -82,19 +83,20 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
         shrinkWrap: true,
         itemCount: 9,
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(bottom: 8),
-            // Space between list items
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                 AppAssetsPath.demoPicURL2.toString(),
+          return InstaImageViewer(
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 8),
+              // Space between list items
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(
+                   AppAssetsPath.demoPicURL2.toString(),
+                  ),
                 ),
-                fit: BoxFit.cover,
               ),
+              height: 400, // Height of each list item
             ),
-            height: 400, // Height of each list item
           );
         },
       ),
@@ -112,14 +114,16 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
         ),
         itemCount: 50,
         itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                  AppAssetsPath.demoPicURL2.toString(),
+          return InstaImageViewer(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    AppAssetsPath.demoPicURL2.toString(),
+                  ),
+                  // fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
               ),
             ),
           );

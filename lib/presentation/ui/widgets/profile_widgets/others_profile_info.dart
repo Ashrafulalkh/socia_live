@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 
 import '../../utils/app_assets_path.dart';
 import '../../utils/app_colors.dart';
@@ -18,12 +19,15 @@ class OthersProfileInfoWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(
-                AppAssetsPath.demoPicURL2.toString(),
-              ),
-            ),
+            InstaImageViewer(
+               child: CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(
+                  AppAssetsPath.demoPicURL2.toString(),
+
+                ),
+                           ),
+             ),
             const SizedBox(width: 16),
             Expanded(
               child: Column(

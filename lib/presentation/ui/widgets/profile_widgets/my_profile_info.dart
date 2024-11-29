@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import '../../utils/app_colors.dart';
 
@@ -22,10 +23,12 @@ class MyProfileInfoWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(
-               AppAssetsPath.demoPicURL1.toString(),
+            InstaImageViewer(
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(
+                 AppAssetsPath.demoPicURL1.toString(),
+                ),
               ),
             ),
             const SizedBox(width: 16),

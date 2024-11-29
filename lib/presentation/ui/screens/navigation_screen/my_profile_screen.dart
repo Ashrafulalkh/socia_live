@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
 import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
@@ -72,14 +73,16 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         ),
         itemCount: 19,
         itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                  AppAssetsPath.demoPicURL1.toString(),
+          return InstaImageViewer(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    AppAssetsPath.demoPicURL1.toString(),
+                  ),
+                  // fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
               ),
             ),
           );
@@ -95,19 +98,21 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         shrinkWrap: true,
         itemCount: 5,
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(bottom: 8),
-            // Space between list items
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                  AppAssetsPath.demoPicURL1.toString(),
+          return InstaImageViewer(
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 8),
+              // Space between list items
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    AppAssetsPath.demoPicURL1.toString(),
+                  ),
+                  // fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
               ),
+              height: 400,
             ),
-            height: 400,
           );
         },
       ),
@@ -125,14 +130,16 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         ),
         itemCount: 7,
         itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                  AppAssetsPath.demoPicURL1.toString(),
+          return InstaImageViewer(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    AppAssetsPath.demoPicURL1.toString(),
+                  ),
+                  // fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
               ),
             ),
           );
