@@ -99,7 +99,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       text: "  Sign Up",
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => Get.toNamed(RouteNames.signupScreen)),
+                        ..onTap = () => Get.offNamed(RouteNames.signupScreen)),
                 ], text: "Don't have an account ?"))
               ],
             ),
