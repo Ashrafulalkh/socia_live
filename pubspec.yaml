@@ -39,6 +39,9 @@ dependencies:
   get: ^4.6.6
   # Assets package
   flutter_svg: ^2.0.10+1
+  #supabase package
+  supabase_flutter: ^2.8.1
+
 
 dev_dependencies:
   flutter_test:
