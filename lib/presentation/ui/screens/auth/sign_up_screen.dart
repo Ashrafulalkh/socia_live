@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
 import 'package:socia_live/presentation/state_holders/auth/sign_up_controller.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
-
 import 'package:socia_live/presentation/ui/utils/app_constants.dart';
 import 'package:socia_live/presentation/ui/utils/app_strings.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
