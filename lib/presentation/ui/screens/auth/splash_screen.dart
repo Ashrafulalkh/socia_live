@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
+import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 
-import 'package:socia_live/presentation/ui/utils/assets_path.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
