@@ -11,8 +11,9 @@ class OthersProfileInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      color: AppColors.darkThemeAppBarColor,
+      color: isDarkTheme? AppColors.darkThemeAppBarColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(

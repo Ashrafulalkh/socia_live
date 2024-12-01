@@ -5,6 +5,9 @@ import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import '../../utils/app_colors.dart';
 
 class MyProfileInfoWidget extends StatelessWidget {
+
+
+
   const MyProfileInfoWidget({
     super.key,
     required this.followingCallback,
@@ -17,8 +20,9 @@ class MyProfileInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      color: AppColors.darkThemeAppBarColor,
+      color: isDarkTheme? AppColors.darkThemeAppBarColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
