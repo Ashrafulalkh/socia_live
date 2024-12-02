@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
+import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
+import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_photo_gallery_list_view.dart';
 
 
 import '../../widgets/profile_widgets/others_profile_info.dart';
@@ -31,7 +32,7 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
         ),
         body: Column(
           children: [
-            OthersProfileInfoWidget(),
+            const OthersProfileInfoWidget(),
             _buildTabBar(),
             const SizedBox(
               height: 10
@@ -39,8 +40,8 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildGridViewSection(),
-                  _buildListViewSection(),
+                  ProfilePhotoGalleryListGridView(imageList:AppAssetsPath().demoImageList,),
+                  ProfilePhotoGalleryListView(imageList: AppAssetsPath().demoImageList,),
                 ],
               ),
             ),
@@ -75,49 +76,5 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
         ),
       ],
     );
-  }
-
-  Widget _buildListViewSection() {
-    return Padding(
-      padding: const EdgeInsets.all(17.0),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 9,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              // Space between list items
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                   AppAssetsPath.demoPicURL2.toString(),
-                  ),
-                ),
-              ),
-              height: 400, // Height of each list item
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildGridViewSection() {
-    return MasonryGridView.builder(
-        itemCount: AppAssetsPath().demoImageList.length,
-        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-        ),
-        itemBuilder: (context, index) => InstaImageViewer(
-          child: Padding(
-            padding: const EdgeInsets.all(2),
-            child: Image.network(
-              AppAssetsPath().demoImageList[index].toString(),
-              // AppAssetsPath.demoPicURL1.toString(),
-            ),
-          ),
-        ));
   }
 }

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
+import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_steaming_list.dart';
 import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
+import '../../widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
@@ -43,9 +42,13 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildAllPostSection(),
-                  _buildSteamingSection(),
-                  _buildSaveSection(),
+                  ProfilePhotoGalleryListGridView(
+                    imageList: AppAssetsPath().demoImageList,
+                  ),
+                  const ProfileSteamingList(),
+                  ProfilePhotoGalleryListGridView(
+                    imageList: AppAssetsPath().demoImageList,
+                  ),
                 ],
               ),
             ),
@@ -61,68 +64,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         ),
       ),
     );
-  }
-
-  Widget _buildAllPostSection() {
-    return MasonryGridView.builder(
-        itemCount: AppAssetsPath().demoImageList.length,
-        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-        ),
-        itemBuilder: (context, index) => InstaImageViewer(
-              child: Padding(
-                padding: const EdgeInsets.all(2),
-                child: Image.network(
-                  AppAssetsPath().demoImageList[index].toString(),
-                  // AppAssetsPath.demoPicURL1.toString(),
-                ),
-              ),
-            ));
-  }
-
-  Widget _buildSteamingSection() {
-    return Padding(
-      padding: const EdgeInsets.all(17.0),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              // Space between list items
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
-              height: 400,
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildSaveSection() {
-    return MasonryGridView.builder(
-        itemCount: AppAssetsPath().demoImageList.length,
-        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-        ),
-        itemBuilder: (context, index) => InstaImageViewer(
-          child: Padding(
-            padding: const EdgeInsets.all(2),
-            child: Image.network(
-              AppAssetsPath().demoImageList[index].toString(),
-              // AppAssetsPath.demoPicURL1.toString(),
-            ),
-          ),
-        ));
   }
 
   Widget _buildTabBar() {
