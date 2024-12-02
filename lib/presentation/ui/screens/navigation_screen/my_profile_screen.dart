@@ -6,6 +6,7 @@ import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
 import '../../widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
 
+
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
 
