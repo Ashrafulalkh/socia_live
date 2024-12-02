@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 
@@ -33,7 +34,7 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
             OthersProfileInfoWidget(),
             _buildTabBar(),
             const SizedBox(
-              height: 10,
+              height: 10
             ),
             Expanded(
               child: TabBarView(
@@ -104,31 +105,19 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
   }
 
   Widget _buildGridViewSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    return MasonryGridView.builder(
+        itemCount: AppAssetsPath().demoImageList.length,
+        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
         ),
-        itemCount: 50,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL2.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
+        itemBuilder: (context, index) => InstaImageViewer(
+          child: Padding(
+            padding: const EdgeInsets.all(2),
+            child: Image.network(
+              AppAssetsPath().demoImageList[index].toString(),
+              // AppAssetsPath.demoPicURL1.toString(),
             ),
-          );
-        },
-      ),
-    );
+          ),
+        ));
   }
 }

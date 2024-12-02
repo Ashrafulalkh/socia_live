@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
@@ -42,7 +43,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildAllSection(),
+                  _buildAllPostSection(),
                   _buildSteamingSection(),
                   _buildSaveSection(),
                 ],
@@ -62,33 +63,21 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     );
   }
 
-  Widget _buildAllSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+  Widget _buildAllPostSection() {
+    return MasonryGridView.builder(
+        itemCount: AppAssetsPath().demoImageList.length,
+        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
         ),
-        itemCount: 19,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
+        itemBuilder: (context, index) => InstaImageViewer(
+              child: Padding(
+                padding: const EdgeInsets.all(2),
+                child: Image.network(
+                  AppAssetsPath().demoImageList[index].toString(),
+                  // AppAssetsPath.demoPicURL1.toString(),
                 ),
               ),
-            ),
-          );
-        },
-      ),
-    );
+            ));
   }
 
   Widget _buildSteamingSection() {
@@ -120,32 +109,20 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   }
 
   Widget _buildSaveSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    return MasonryGridView.builder(
+        itemCount: AppAssetsPath().demoImageList.length,
+        gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
         ),
-        itemCount: 7,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
+        itemBuilder: (context, index) => InstaImageViewer(
+          child: Padding(
+            padding: const EdgeInsets.all(2),
+            child: Image.network(
+              AppAssetsPath().demoImageList[index].toString(),
+              // AppAssetsPath.demoPicURL1.toString(),
             ),
-          );
-        },
-      ),
-    );
+          ),
+        ));
   }
 
   Widget _buildTabBar() {

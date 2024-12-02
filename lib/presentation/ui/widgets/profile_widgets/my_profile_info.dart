@@ -56,34 +56,24 @@ class MyProfileInfoWidget extends StatelessWidget {
                   Wrap(
                     children: [
                       const Text(
-                        '50 ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const Text(
-                        'Posts',
-                        style: TextStyle(),
+                        '50 Posts',
+                        style: TextStyle(fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(width: 16),
-                      const Text(
-                        '12 ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
                       GestureDetector(
                         onTap: followersCallback,
                         child: const Text(
-                          'Following',
+                          '12 Following',
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ),
                       const SizedBox(width: 16),
-                      const Text(
-                        '85 ',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
                       GestureDetector(
                         onTap: followersCallback,
                         child: const Text(
-                          'Followers',
-                          style: TextStyle(),
+                          '82 Followers',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+
                         ),
                       ),
                     ],
