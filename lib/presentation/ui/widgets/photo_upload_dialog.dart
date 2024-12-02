@@ -24,7 +24,6 @@ class PhotoSelectionDialog extends StatelessWidget {
           const SizedBox(height: 20.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
             children: [
               GestureDetector(
                 onTap: onCameraTap,

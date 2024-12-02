@@ -15,7 +15,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
     return Scaffold(
       body: Center(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width * .5,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width * .5,
           child: ElevatedButton(
             onPressed: () {
               showDialog(
