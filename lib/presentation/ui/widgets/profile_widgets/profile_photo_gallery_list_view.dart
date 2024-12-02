@@ -25,6 +25,6 @@ class ProfilePhotoGalleryListView extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }

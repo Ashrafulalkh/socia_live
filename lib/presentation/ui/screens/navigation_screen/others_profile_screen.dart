@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
 import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_photo_gallery_list_view.dart';
