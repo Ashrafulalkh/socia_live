@@ -22,8 +22,36 @@ class _LogInScreenState extends State<LogInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // current theme is light or dark
+    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       body: SafeArea(
+          child: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(12),
+          child: Form(
+            key: _key,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  AppAssetsPath.appLogo,
+                  colorFilter: ColorFilter.mode(
+                    isLightTheme ? Colors.black : Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
         child: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(12),
@@ -86,6 +114,16 @@ class _LogInScreenState extends State<LogInScreen> {
                       prefixIcon: Icon(Icons.lock_outline_rounded),
                     ),
                   ),
+                ),
+                const SizedBox(height: 18),
+                Text.rich(TextSpan(children: [
+                  TextSpan(
+                      text: "  Sign Up",
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Get.offNamed(RouteNames.signupScreen)),
+                ], text: "Don't have an account ?"))
+              ],
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () async {
@@ -153,4 +191,9 @@ class _LogInScreenState extends State<LogInScreen> {
       ),
     );
   }
+
+  void _moveToBottomBarScreen() {
+    Get.to(const MainBottomNavBarScreen());
+  }
+
 }

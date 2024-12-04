@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
 import '../../utils/app_assets_path.dart';

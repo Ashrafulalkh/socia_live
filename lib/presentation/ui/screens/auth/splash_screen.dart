@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -26,6 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // current theme is light or dark
+    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -33,7 +34,14 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            SvgPicture.asset(AppAssetsPath.appLogo, height: 50),
+            SvgPicture.asset(
+              AppAssetsPath.appLogo,
+              height: 50,
+              colorFilter: ColorFilter.mode(
+                isLightTheme ? Colors.black : Colors.white,
+                BlendMode.srcIn,
+              ),
+            ),
             const Spacer(),
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
