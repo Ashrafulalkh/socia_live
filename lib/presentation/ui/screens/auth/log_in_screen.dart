@@ -1,4 +1,3 @@
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,7 +7,6 @@ import 'package:socia_live/presentation/ui/screens/navigation_screen/main_bottom
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 
 import 'package:socia_live/presentation/ui/utils/app_constants.dart';
-
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -24,6 +22,8 @@ final TextEditingController _passwordTEController = TextEditingController();
 class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
+    // current theme is light or dark
+    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -34,7 +34,13 @@ class _LogInScreenState extends State<LogInScreen> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                SvgPicture.asset(AppAssetsPath.appLogo),
+                SvgPicture.asset(
+                  AppAssetsPath.appLogo,
+                  colorFilter: ColorFilter.mode(
+                    isLightTheme ? Colors.black : Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 const SizedBox(height: 12),
                 const Align(
                   alignment: Alignment.topLeft,
@@ -100,7 +106,6 @@ class _LogInScreenState extends State<LogInScreen> {
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Get.offNamed(RouteNames.signupScreen)),
-
                 ], text: "Don't have an account ?"))
               ],
             ),
@@ -109,7 +114,8 @@ class _LogInScreenState extends State<LogInScreen> {
       )),
     );
   }
-  void _moveToBottomBarScreen(){
+
+  void _moveToBottomBarScreen() {
     Get.to(const MainBottomNavBarScreen());
   }
 }

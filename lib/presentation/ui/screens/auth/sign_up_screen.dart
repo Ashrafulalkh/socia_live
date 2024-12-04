@@ -8,7 +8,6 @@ import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import 'package:socia_live/presentation/ui/utils/app_constants.dart';
 import 'package:socia_live/presentation/ui/utils/app_strings.dart';
 
-
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -27,6 +26,8 @@ final TextEditingController _confirmPasswordTEController =
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
+    // current theme is light or dark
+    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -37,7 +38,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
-                  SvgPicture.asset(AppAssetsPath.appLogo),
+                  SvgPicture.asset(
+                    AppAssetsPath.appLogo,
+                    colorFilter: ColorFilter.mode(
+                      isLightTheme ? Colors.black : Colors.white,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                   const SizedBox(height: 12),
                   const Align(
                     alignment: Alignment.topLeft,

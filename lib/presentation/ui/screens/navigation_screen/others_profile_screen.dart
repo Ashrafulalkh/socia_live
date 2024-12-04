@@ -30,7 +30,7 @@ class _OthersProfileScreenState extends State<OthersProfileScreen> {
         ),
         body: Column(
           children: [
-            OthersProfileInfoWidget(),
+            const OthersProfileInfoWidget(),
             _buildTabBar(),
             const SizedBox(
               height: 10,
