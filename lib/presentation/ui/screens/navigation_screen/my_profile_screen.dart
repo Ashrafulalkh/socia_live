@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
+import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_steaming_list.dart';
 import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
+import '../../widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
@@ -42,9 +42,13 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildAllSection(),
-                  _buildSteamingSection(),
-                  _buildSaveSection(),
+                  ProfilePhotoGalleryListGridView(
+                    imageList: AppAssetsPath().demoImageList,
+                  ),
+                  const ProfileSteamingList(),
+                  ProfilePhotoGalleryListGridView(
+                    imageList: AppAssetsPath().demoImageList,
+                  ),
                 ],
               ),
             ),
@@ -58,92 +62,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           },
           child: const Icon(Icons.account_circle),
         ),
-      ),
-    );
-  }
-
-  Widget _buildAllSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
-        ),
-        itemCount: 19,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildSteamingSection() {
-    return Padding(
-      padding: const EdgeInsets.all(17.0),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 8),
-              // Space between list items
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
-              height: 400,
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildSaveSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
-        ),
-        itemCount: 7,
-        itemBuilder: (context, index) {
-          return InstaImageViewer(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppAssetsPath.demoPicURL1.toString(),
-                  ),
-                  // fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          );
-        },
       ),
     );
   }
