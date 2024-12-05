@@ -22,10 +22,10 @@ class SignInController extends GetxController {
       if (response.session != null) {
         isSuccess = true;
       } else {
-        print("Sign in Failed")
+        print("Sign in Failed");
       }
     } catch (e) {
-      print("Sign in Failed")
+      print("Sign in Failed");
     } finally {
       _inProgress = false;
       update();
