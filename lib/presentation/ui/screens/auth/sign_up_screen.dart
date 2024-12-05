@@ -32,7 +32,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             padding: const EdgeInsets.all(12),
             child: Form(
               key: _key,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
                   const AppLogo(),

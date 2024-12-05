@@ -29,7 +29,6 @@ class _LogInScreenState extends State<LogInScreen> {
           padding: const EdgeInsets.all(12),
           child: Form(
             key: _key,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
                 const AppLogo(),
@@ -44,13 +43,14 @@ class _LogInScreenState extends State<LogInScreen> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
-                        ),
+                        ),),
                         Text("Welcome Back"),
                       ],
                     ),
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (String? value) {
                       if (value?.trim().isEmpty ?? true) {
                         return "Please enter your email.";
@@ -70,6 +70,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (String? value) {
                       if (value?.isEmpty ?? true) {
                         return "Please enter your password.";
