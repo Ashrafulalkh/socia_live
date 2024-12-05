@@ -1,12 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
 import 'package:socia_live/presentation/state_holders/auth/sign_in_controller.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/main_bottom_nav_bar_screen.dart';
-import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import 'package:socia_live/presentation/ui/utils/app_constants.dart';
+import 'package:socia_live/presentation/ui/widgets/auth/app_logo.dart';
+
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -24,27 +24,26 @@ class _LogInScreenState extends State<LogInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(12),
-            child: Form(
-              key: _key,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                children: [
-                  SvgPicture.asset(AppAssetsPath.appLogo),
-                  const SizedBox(height: 12),
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Login",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
+          child: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(12),
+          child: Form(
+            key: _key,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                const AppLogo(),
+                const SizedBox(height: 12),
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
                         ),
                         Text("Welcome Back"),
                       ],
@@ -152,5 +151,15 @@ class _LogInScreenState extends State<LogInScreen> {
         ),
       ),
     );
+  }
+  void _moveToBottomBarScreen() {
+    Get.to(const MainBottomNavBarScreen());
+  }
+
+  @override
+  void dispose() {
+    _emailTEController.dispose();
+    _passwordTEController.dispose();
+    super.dispose();
   }
 }

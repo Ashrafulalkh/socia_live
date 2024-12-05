@@ -11,9 +11,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text("Home Screen"),
-      ),
+     body: Padding(padding: EdgeInsets.all(12), child: CustomScrollView(
+       slivers: [
+         SliverAppBar(
+
+         )
+       ],
+     ),),
     );
   }
 }

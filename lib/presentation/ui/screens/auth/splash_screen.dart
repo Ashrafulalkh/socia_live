@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
-import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
-
+import 'package:socia_live/presentation/ui/widgets/auth/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,18 +24,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return const Scaffold(
       body: SafeArea(
           child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(),
-            SvgPicture.asset(AppAssetsPath.appLogo, height: 50),
-            const Spacer(),
-            const CircularProgressIndicator(),
-            const SizedBox(height: 16),
-            const Text(
+            Spacer(),
+            AppLogo(),
+            Spacer(),
+            CircularProgressIndicator(),
+            SizedBox(height: 16),
+            Text(
               'version 1.0.0',
               style: TextStyle(color: Colors.grey),
             ),
