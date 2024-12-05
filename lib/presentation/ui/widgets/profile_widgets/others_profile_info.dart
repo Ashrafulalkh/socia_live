@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 import '../../utils/app_assets_path.dart';
@@ -11,22 +10,22 @@ class OthersProfileInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkTheme = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      color: AppColors.darkThemeAppBarColor,
+      color: isDarkTheme ? AppColors.darkThemeAppBarColor : AppColors.lightThemeAppBarColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InstaImageViewer(
-               child: CircleAvatar(
+              child: CircleAvatar(
                 radius: 50,
                 backgroundImage: NetworkImage(
                   AppAssetsPath.demoPicURL2.toString(),
-
                 ),
-                           ),
-             ),
+              ),
+            ),
             const SizedBox(width: 16),
             Expanded(
               child: Column(
@@ -68,11 +67,11 @@ class OthersProfileInfoWidget extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                            AppColors.darkThemeProfileButtonColor,
+                            backgroundColor: isDarkTheme
+                                ? AppColors.darkThemeProfileButtonColor
+                                : AppColors.lightThemeProfileButtonColor,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                           ),
                           child: const Text('Follow'),
                         ),
@@ -86,11 +85,11 @@ class OthersProfileInfoWidget extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                            AppColors.darkThemeProfileButtonColor,
+                            backgroundColor: isDarkTheme
+                                ? AppColors.darkThemeProfileButtonColor
+                                : AppColors.lightThemeProfileButtonColor,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                           ),
                           child: const Text('Message'),
                         ),

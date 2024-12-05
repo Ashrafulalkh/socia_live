@@ -1,13 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
 import 'package:socia_live/presentation/state_holders/auth/sign_up_controller.dart';
-import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import 'package:socia_live/presentation/ui/utils/app_constants.dart';
 import 'package:socia_live/presentation/ui/utils/app_strings.dart';
-
+import 'package:socia_live/presentation/ui/widgets/auth/app_logo.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -34,10 +32,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             padding: const EdgeInsets.all(12),
             child: Form(
               key: _key,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
-                  SvgPicture.asset(AppAssetsPath.appLogo),
+                  const AppLogo(),
                   const SizedBox(height: 12),
                   const Align(
                     alignment: Alignment.topLeft,

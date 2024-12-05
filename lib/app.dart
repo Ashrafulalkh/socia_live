@@ -14,7 +14,9 @@ class SociaLive extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: AppStrings.appName,
-      theme: darkTheme,
+      themeMode: ThemeMode.light,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       getPages: Routes.pages,
       initialRoute: RouteNames.splashScreen,
       defaultTransition: Transition.noTransition,
