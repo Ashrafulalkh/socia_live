@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:socia_live/presentation/state_holders/bottom_nav_bar_controller.dart';
+import 'package:socia_live/presentation/state_holders/navigation_screen/bottom_nav_bar_controller.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/add_post_screen.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/explorer_screen.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/home_screen.dart';
