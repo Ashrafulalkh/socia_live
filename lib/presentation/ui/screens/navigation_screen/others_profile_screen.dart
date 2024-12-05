@@ -5,6 +5,7 @@ import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_photo
 import '../../widgets/profile_widgets/others_profile_info.dart';
 import '../../widgets/profile_widgets/profile_photo_gallery_list_grid_view.dart';
 
+
 class OthersProfileScreen extends StatefulWidget {
   const OthersProfileScreen({super.key});
 
