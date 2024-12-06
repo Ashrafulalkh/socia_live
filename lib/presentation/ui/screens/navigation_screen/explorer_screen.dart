@@ -14,7 +14,7 @@ class _ExplorerScreenState extends State<ExplorerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 120,
+        toolbarHeight: 90,
         automaticallyImplyLeading: false,
         title: _searchTextField(),
       ),
@@ -26,26 +26,32 @@ class _ExplorerScreenState extends State<ExplorerScreen> {
   }
 
   Widget _searchTextField() {
-    return TextField(
-        decoration: InputDecoration(
-          hintText: 'Search',
-          prefixIcon: const Icon(Icons.search),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          enabledBorder: OutlineInputBorder(
+    return SizedBox(
+      height: 50,
+      child: TextField(
+          decoration: InputDecoration(
+            hintText: 'Search',
+            hintStyle: TextStyle(
+              color: Colors.grey
+            ),
+            prefixIcon: const Icon(Icons.search),
+            border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
-              color: Colors.blueAccent
-            )
-          ),
-            focusedBorder: OutlineInputBorder(
+            ),
+            enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                    color: Colors.blueAccent
-                )
-            )
+              borderSide: const BorderSide(
+                color: Colors.blueAccent
+              )
+            ),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                      color: Colors.blueAccent
+                  )
+              )
+          ),
         ),
-      );
+    );
   }
 }
