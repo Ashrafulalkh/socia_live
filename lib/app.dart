@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/controller_binder.dart';
@@ -14,13 +15,16 @@ class SociaLive extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: AppStrings.appName,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: lightTheme,
       darkTheme: darkTheme,
       getPages: Routes.pages,
       initialRoute: RouteNames.splashScreen,
       defaultTransition: Transition.noTransition,
       initialBinding: ControllerBinder(),
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
     );
   }
 }

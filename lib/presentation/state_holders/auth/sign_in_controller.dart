@@ -18,7 +18,6 @@ class SignInController extends GetxController {
         email: email,
         password: password,
       );
-
       if (response.session != null) {
         isSuccess = true;
       } else {
