@@ -3,7 +3,6 @@ class AppAssetsPath {
 
   static const String demoPicURL1 =
       'https://picsum.photos/seed/profile2/300/300';
-
   static const String demoPicURL2 =
       'https://picsum.photos/seed/profile1/200/200';
   static const String demoPicURL3 =
