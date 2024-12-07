@@ -18,14 +18,13 @@ class SignInController extends GetxController {
         email: email,
         password: password,
       );
-
-      if (response.user != null) {
+      if (response.session != null) {
         isSuccess = true;
       } else {
-        log('Sign In Failed' as num);
+        print("Sign in Failed");
       }
     } catch (e) {
-      log('Sign In Error: $e' as num);
+      print("Sign in Failed");
     } finally {
       _inProgress = false;
       update();
