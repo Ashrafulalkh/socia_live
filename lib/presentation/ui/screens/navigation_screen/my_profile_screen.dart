@@ -20,6 +20,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back_ios_new)),
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: const Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:socia_live/presentation/ui/utils/app_colors.dart';
 
 class ThemeController extends GetxController {
   var isLightTheme = true.obs;
@@ -9,4 +10,8 @@ class ThemeController extends GetxController {
   }
 
   Color get logoColor => isLightTheme.value ? Colors.black : Colors.white;
+
+  Color get postBgColor => isLightTheme.value
+      ? AppColors.lightThemeAppBarColor
+      : AppColors.darkThemeAppBarColor;
 }

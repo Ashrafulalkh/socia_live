@@ -11,5 +11,6 @@ class ControllerBinder extends Bindings {
     Get.put(BottomNavBarController());
     Get.put(SignInController());
     Get.put(ThemeController());
+
   }
 }

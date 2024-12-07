@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.6
   # Assets package
   flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.8.0
   #supabase package
   supabase_flutter: ^2.8.1
   
