@@ -5,6 +5,7 @@ import 'package:socia_live/presentation/ui/screens/auth/log_in_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/sign_up_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/splash_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/welcome_screen.dart';
+import 'package:socia_live/presentation/ui/screens/navigation_screen/my_profile_screen.dart';
 
 class Routes {
   static final pages = [
@@ -23,6 +24,10 @@ class Routes {
     GetPage(
       name: RouteNames.loginScreen,
       page: () => const LogInScreen(),
+    ),
+    GetPage(
+      name: RouteNames.myProfileScreen,
+      page: () => const MyProfileScreen(),
     )
   ];
 }

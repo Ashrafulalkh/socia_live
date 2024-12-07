@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:socia_live/presentation/ui/utils/supabase_const.dart';
 
@@ -21,10 +20,10 @@ class SignInController extends GetxController {
       if (response.session != null) {
         isSuccess = true;
       } else {
-        print("Sign in Failed");
+        debugPrint("Sign in Failed");
       }
     } catch (e) {
-      print("Sign in Failed");
+      debugPrint("Sign in Failed");
     } finally {
       _inProgress = false;
       update();
