@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:socia_live/presentation/state_holders/auth/auth_controller.dart';
 import 'package:socia_live/presentation/ui/utils/supabase_const.dart';
 
 class SignInController extends GetxController {
@@ -19,6 +20,7 @@ class SignInController extends GetxController {
       );
       if (response.session != null) {
         isSuccess = true;
+        Get.find<AuthController>().saveAccessToken(response.session!.accessToken);
       } else {
         debugPrint("Sign in Failed");
       }

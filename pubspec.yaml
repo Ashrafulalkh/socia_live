@@ -51,6 +51,9 @@ dependencies:
   #device_preview
   device_preview: ^1.2.0
 
+  #shared_preferences package
+  shared_preferences: ^2.3.3
+
 
 
 
