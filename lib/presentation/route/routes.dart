@@ -34,6 +34,5 @@ class Routes {
       name: RouteNames.mainBottomNavBarScreen,
       page: () => const MainBottomNavBarScreen(),
     ),
-
   ];
 }
