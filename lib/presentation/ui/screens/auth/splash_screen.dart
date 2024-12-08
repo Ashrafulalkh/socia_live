@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:socia_live/presentation/route/route_names.dart';
+import 'package:socia_live/presentation/state_holders/auth/auth_controller.dart';
 import 'package:socia_live/presentation/ui/widgets/auth/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +14,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Future<void> _moveToNextScreen() async {
     await Future.delayed(const Duration(seconds: 2));
-    Get.offNamed(RouteNames.welcomeScreen);
+    bool isLoggedIn = await Get.find<AuthController>().checkAuthState();
+    if(isLoggedIn){
+      Get.offAllNamed(RouteNames.mainBottomNavBarScreen);
+    }else {
+      Get.offAllNamed(RouteNames.welcomeScreen);
+    }
   }
 
   @override
