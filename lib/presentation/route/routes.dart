@@ -5,6 +5,7 @@ import 'package:socia_live/presentation/ui/screens/auth/log_in_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/sign_up_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/splash_screen.dart';
 import 'package:socia_live/presentation/ui/screens/auth/welcome_screen.dart';
+import 'package:socia_live/presentation/ui/screens/navigation_screen/main_bottom_nav_bar_screen.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/my_profile_screen.dart';
 
 class Routes {
@@ -28,6 +29,11 @@ class Routes {
     GetPage(
       name: RouteNames.myProfileScreen,
       page: () => const MyProfileScreen(),
-    )
+    ),
+    GetPage(
+      name: RouteNames.mainBottomNavBarScreen,
+      page: () => const MainBottomNavBarScreen(),
+    ),
+
   ];
 }

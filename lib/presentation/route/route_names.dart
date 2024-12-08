@@ -4,4 +4,5 @@ class RouteNames {
   static String loginScreen = "/loginScreen";
   static String signupScreen = "/signupScreen";
   static String myProfileScreen = "/myProfileScreen";
+  static String mainBottomNavBarScreen = "/mainBottomNavBarScreen";
 }
