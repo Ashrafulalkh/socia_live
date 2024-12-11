@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:socia_live/presentation/state_holders/navigation_screen/bottom_nav_bar_controller.dart';
+import 'package:socia_live/presentation/state_holders/user_details/user_details_controller.dart';
+import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
 import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_steaming_list.dart';
 import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
@@ -14,6 +15,13 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
+
+  @override
+  void initState() {
+    Get.find<UserDetailsController>().fetchUserDetails();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -22,7 +30,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Get.find<BottomNavBarController>().backToHome();
+                Get.back();
               },
               icon: const Icon(Icons.arrow_back_ios_new)),
           centerTitle: true,
@@ -34,30 +42,48 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            MyProfileInfoWidget(
-              followingCallback: () {},
-              followersCallback: () {},
-            ),
-            _buildTabBar(),
-            const SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: TabBarView(
+        body: GetBuilder<UserDetailsController>(
+          builder: (userDetailsController) {
+            return Visibility(
+              visible: !userDetailsController.inProgress,
+              replacement: const Center(
+                child: CircularProgressIndicator(),
+              ),
+              child: Column(
                 children: [
-                  ProfilePhotoGalleryListGridView(
-                    imageList: AppAssetsPath().demoImageList,
+                  MyProfileInfoWidget(
+                    followingCallback: () {},
+                    followersCallback: () {},  user: userDetailsController.user,
                   ),
-                  const ProfileSteamingList(),
-                  ProfilePhotoGalleryListGridView(
-                    imageList: AppAssetsPath().demoImageList,
+                  _buildTabBar(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        ProfilePhotoGalleryListGridView(
+                          imageList: AppAssetsPath().demoImageList,
+                        ),
+                        const ProfileSteamingList(),
+                        ProfilePhotoGalleryListGridView(
+                          imageList: AppAssetsPath().demoImageList,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
-            ),
-          ],
+            );
+          }
+        ),
+
+        ////// Please remove this after after navigated others profile.....
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Get.to(() => const OthersProfileScreen());
+          },
+          child: const Icon(Icons.account_circle),
         ),
       ),
     );

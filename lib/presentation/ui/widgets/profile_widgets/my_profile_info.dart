@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
+import 'package:socia_live/data/models/user_model.dart';
 import 'package:socia_live/presentation/ui/utils/app_assets_path.dart';
 import '../../utils/app_colors.dart';
 
@@ -7,11 +8,12 @@ class MyProfileInfoWidget extends StatelessWidget {
   const MyProfileInfoWidget({
     super.key,
     required this.followingCallback,
-    required this.followersCallback,
+    required this.followersCallback, required this.user,
   });
 
   final VoidCallback followingCallback;
   final VoidCallback followersCallback;
+  final UserModel? user;
 
   @override
   Widget build(BuildContext context) {
@@ -35,30 +37,30 @@ class MyProfileInfoWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Nafiur Rahman',
-                    style: TextStyle(
+                  Text(
+                    user?.userName ?? 'Unknown',
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
-                    '@nafiur_',
-                    style: TextStyle(color: Colors.grey),
+                  Text(
+                    '@${user?.userName ?? 'Unknown'}',
+                    style: const TextStyle(color: Colors.grey),
                   ),
                   const SizedBox(height: 8),
                   Wrap(
                     children: [
                       const Text(
-                        '50 Posts',
+                        '0 Posts',
                         style: TextStyle(fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(width: 16),
                       GestureDetector(
                         onTap: followersCallback,
                         child: const Text(
-                          '12 Following',
+                          '0 Following',
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -66,7 +68,7 @@ class MyProfileInfoWidget extends StatelessWidget {
                       GestureDetector(
                         onTap: followersCallback,
                         child: const Text(
-                          '82 Followers',
+                          '0 Followers',
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ),
