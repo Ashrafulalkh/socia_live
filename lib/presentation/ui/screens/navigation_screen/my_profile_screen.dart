@@ -30,7 +30,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Get.back();
+                Get.find<BottomNavBarController>().backToHome();
               },
               icon: const Icon(Icons.arrow_back_ios_new)),
           centerTitle: true,
@@ -76,14 +76,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               ),
             );
           }
-        ),
-
-        ////// Please remove this after after navigated others profile.....
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Get.to(() => const OthersProfileScreen());
-          },
-          child: const Icon(Icons.account_circle),
         ),
       ),
     );
