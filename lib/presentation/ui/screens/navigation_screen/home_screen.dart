@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:socia_live/presentation/route/route_names.dart';
+import 'package:socia_live/presentation/state_holders/navigation_screen/bottom_nav_bar_controller.dart';
 import 'package:socia_live/presentation/ui/widgets/auth/app_logo.dart';
 import 'package:socia_live/presentation/ui/widgets/home_screen/circular_image.dart';
 import 'package:socia_live/presentation/ui/widgets/home_screen/post_card.dart';
+import 'package:socia_live/presentation/ui/widgets/home_screen/story_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             expandedHeight: 60,
             leading: GestureDetector(
               onTap: () {
-                Get.toNamed(RouteNames.myProfileScreen);
+                Get.find<BottomNavBarController>().selectProfile();
               },
               child: const Padding(
                 padding: EdgeInsets.all(6.0),
@@ -45,8 +46,19 @@ class _HomeScreenState extends State<HomeScreen> {
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               physics: const BouncingScrollPhysics(),
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                return const StoryCard();
+              },
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ListView.builder(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              physics: const BouncingScrollPhysics(),
               itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 return const PostCard();
               },
             ),

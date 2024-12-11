@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
+import 'package:socia_live/presentation/state_holders/navigation_screen/bottom_nav_bar_controller.dart';
 import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_steaming_list.dart';
 import '../../utils/app_assets_path.dart';
 import '../../widgets/profile_widgets/my_profile_info.dart';
@@ -22,7 +22,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Get.back();
+                Get.find<BottomNavBarController>().backToHome();
               },
               icon: const Icon(Icons.arrow_back_ios_new)),
           centerTitle: true,
@@ -58,14 +58,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               ),
             ),
           ],
-        ),
-
-        ////// Please remove this after after navigated others profile.....
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Get.to(() => const OthersProfileScreen());
-          },
-          child: const Icon(Icons.account_circle),
         ),
       ),
     );
