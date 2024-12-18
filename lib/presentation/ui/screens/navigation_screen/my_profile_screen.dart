@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:socia_live/presentation/state_holders/navigation_screen/bottom_nav_bar_controller.dart';
+import 'package:socia_live/presentation/state_holders/user_details/user_details_controller.dart';
 import 'package:socia_live/presentation/state_holders/user_details/user_details_controller.dart';
 import 'package:socia_live/presentation/ui/screens/navigation_screen/others_profile_screen.dart';
 import 'package:socia_live/presentation/ui/widgets/profile_widgets/profile_steaming_list.dart';
